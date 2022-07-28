@@ -1,0 +1,35 @@
+<div id="pd-popupcreate">
+  <div class="uk-placeholder uk-text-center" *ngIf="userWarn">
+    {{ userWarn }}
+  </div>
+  <form [formGroup]="userCreateForm" (ngSubmit)="createUserRegisters()">
+    <fieldset class="uk-fieldset">
+      <div class="uk-margin">
+        <input class="uk-input" type="text" placeholder="fullname" formControlName="fullname" required>
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input" type="text" placeholder="tempat lahir" formControlName="born_city">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input" type="datetime-local" placeholder="tanggal lahir" formControlName="born_date">
+      </div>
+      <div class="uk-margin">
+        <select class="uk-select" formControlName="sex_category_title" [ngModel]="defaultConfigSex">
+          <option *ngFor="let genderCats of idsConfigSex" [selected]="genderCats.sex_category_title === defaultConfigSex" [value]="genderCats.sex_category_title">
+            {{ genderCats.sex_category_title }}
+          </option>
+        </select>
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input" type="tel" placeholder="nomer telepon / hp" formControlName="phone" required>
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input" type="email" placeholder="email" formControlName="email" required>
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input" type="password" placeholder="password" formControlName="password" required>
+      </div>
+    </fieldset>
+    <button class="uk-button uk-button-primary uk-width-1-1" [disabled]="!userCreateForm.valid">daftar</button>
+  </form>
+</div>

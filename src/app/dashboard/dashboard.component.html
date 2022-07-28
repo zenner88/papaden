@@ -1,0 +1,66 @@
+<div id="pd-dashboard-container">
+  <header>
+    <section uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+      <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+        <div class="uk-navbar-left uk-margin-medium-left">
+          <a class="uk-navbar-item uk-logo" href="/">papaden</a>
+        </div>
+        <div class="uk-navbar-right uk-margin-medium-right">
+          <ul class="uk-navbar-nav">
+            <li>
+              <a href="#offcanvas-navs" uk-icon="icon: menu" uk-toggle></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+    <section>
+      <div class="uk-container uk-container-large">
+        <h3>dashboard</h3>
+      </div>
+    </section>
+  </header>
+  <main>
+    <div class="uk-container uk-container-large">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+  <footer>
+    <div class="uk-container uk-container-large">
+      <p class="uk-text-center uk-text-small uk-padding-small">
+        dikembangkan & dikelola oleh <a href="/" target="_blank" rel="noopener norefferer">papaden</a>&copy;2022.
+      </p>
+    </div>
+  </footer>
+</div>
+<section id="offcanvas-navs" uk-offcanvas="overlay: true">
+  <div class="uk-offcanvas-bar">
+    <button class="uk-offcanvas-close" type="button" uk-close></button>
+    <h3>dashboard menu</h3>
+    <div>
+      <ul class="uk-nav uk-nav-default">
+        <li class="uk-active">
+          <a href="/dashboard/users">users</a>
+        </li>
+        <li>
+          <a href="/dashboard/users/register">register</a>
+        </li>
+        <li>
+          <a href="/dashboard/users/member">member</a>
+        </li>
+        <li class="uk-active">
+          <a href="/dashboard/consultant">registrasi teman bicara</a>
+        </li>
+        <li class="uk-active">
+          <a href="/dashboard/activity">aktifitas</a>
+        </li>
+        <li>
+          <a href="/dashboard/activity/books">teman bicara</a>
+        </li>
+        <li>
+          <a href="/dashboard/activity/recipients">penerima bantuan</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

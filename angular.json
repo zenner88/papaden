@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/papaden-frontend",
+            "outputPath": "dist/papaden-frontend/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,9 +28,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.sass",
+              "node_modules/uikit/dist/css/uikit.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/uikit/dist/js/uikit.js",
+              "node_modules/uikit/dist/js/uikit-icons.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -96,12 +101,75 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.sass"
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/papaden-frontend/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "sass"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "papaden-frontend:build:development",
+              "serverTarget": "papaden-frontend:server:development"
+            },
+            "production": {
+              "browserTarget": "papaden-frontend:build:production",
+              "serverTarget": "papaden-frontend:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "papaden-frontend:build:production",
+              "serverTarget": "papaden-frontend:server:production"
+            },
+            "development": {
+              "browserTarget": "papaden-frontend:build:development",
+              "serverTarget": "papaden-frontend:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "5700a466-c5be-4763-9a28-1adc9840d608"
   }
 }
