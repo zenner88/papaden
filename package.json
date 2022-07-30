@@ -9,7 +9,7 @@
     "test": "ng test",
     "dev:ssr": "ng run papaden-frontend:serve-ssr",
     "serve:ssr": "node dist/papaden-frontend/server/main.js",
-    "build:ssr": "ng build && ng run papaden-frontend:server",
+    "build:ssr": "ng build --baseHref=\"/finance\" && ng run papaden-frontend:server",
     "prerender": "ng run papaden-frontend:prerender"
   },
   "private": true,
