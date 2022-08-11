@@ -11,6 +11,10 @@ import {RecipientsComponent} from "./dashboard/activity/recipients/recipients.co
 
 const routes: Routes = [
   {
+    path: '',
+    component: DashboardComponent
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent,
     children: [
