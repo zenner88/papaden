@@ -11,6 +11,8 @@ import {MemberComponent} from "./dashboard/users/member/member.component";
 import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {UserpopupComponent} from "./dashboard/users/register/userpopup/userpopup.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -19,7 +21,10 @@ import {ActivityComponent} from "./dashboard/activity/activity.component";
 import {RecipientsComponent} from "./dashboard/activity/recipients/recipients.component";
 import {BooksComponent} from "./dashboard/activity/books/books.component";
 import {ConsultantComponent} from "./dashboard/consultant/consultant.component";
+import {ZoomComponent} from "./user/zoom/zoom.component";
+import {ResetpasswordComponent} from "./user/resetpassword/resetpassword.component";
 
+import {ClipboardModule} from '@angular/cdk/clipboard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +37,9 @@ import {ConsultantComponent} from "./dashboard/consultant/consultant.component";
     ConsultantComponent,
     ActivityComponent,
     BooksComponent,
-    RecipientsComponent
+    RecipientsComponent,
+    ZoomComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
@@ -44,6 +51,9 @@ import {ConsultantComponent} from "./dashboard/consultant/consultant.component";
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

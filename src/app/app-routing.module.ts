@@ -8,6 +8,8 @@ import {ConsultantComponent} from "./dashboard/consultant/consultant.component";
 import {ActivityComponent} from "./dashboard/activity/activity.component";
 import {BooksComponent} from "./dashboard/activity/books/books.component";
 import {RecipientsComponent} from "./dashboard/activity/recipients/recipients.component";
+import {ZoomComponent} from "./user/zoom/zoom.component";
+import {ResetpasswordComponent} from "./user/resetpassword/resetpassword.component";
 
 const routes: Routes = [
   {
@@ -51,6 +53,14 @@ const routes: Routes = [
         ]
       }
     ]
+  },
+  {
+    path: 'user/zoom',
+    component: ZoomComponent
+  },
+  {
+    path: 'user/resetpassword',
+    component: ResetpasswordComponent
   },
 ];
 
