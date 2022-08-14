@@ -25,6 +25,7 @@ import {ZoomComponent} from "./user/zoom/zoom.component";
 import {ResetpasswordComponent} from "./user/resetpassword/resetpassword.component";
 
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
-    ClipboardModule
+    ClipboardModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

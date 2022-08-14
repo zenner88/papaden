@@ -21,29 +21,32 @@
                     </tr>
                     <tr>
                         <td>
-                            <table width="95%" border="0" align="center" cellpadding="0" cellspacing="5"
+                            <table width="95%" border="0" align="center" cellpadding="0" cellspacing="1"
                                 style="max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
                                 <tr>
-                                    <td style="height:40px;" colspan="2">
+                                    <td style="height:40px;" colspan="3">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td rowspan="2" style="text-align: right;" width="20%">
-                                        <img width="50" src="https://seeklogo.com/images/Z/zoom-fondo-blanco-vertical-logo-F819E1C283-seeklogo.com.png" title="logo" alt="logo">
+                                    <td rowspan="2" style="text-align: right;" width="25%">
+                                        <img width="50px" src="https://seeklogo.com/images/Z/zoom-fondo-blanco-vertical-logo-F819E1C283-seeklogo.com.png" title="logo" alt="logo">
                                     </td>
-                                    <td style="padding:0 35px; text-align: left;">                                      
-                                        <label for="clipboard-example-textarea"></label>
-                                        <input id="clipboard-example-textarea" [(ngModel)]="value1" size="29">
-                                        <button [cdkCopyToClipboard]="value1">Copy to clipboard</button>
+                                    <td style="padding:0 35px; text-align: right;"  width="70%">                                      
+                                        <input id="clipboard-example-textarea" [(ngModel)]="value1" size="40">
+                                    </td>
+                                    <td style="padding:0 35px; text-align: left"  width="5%">                                      
+                                        <button [cdkCopyToClipboard]="value1"><mat-icon>file_copy</mat-icon></button>
                                     </td>
                                 <tr>
-                                    <td style="padding:0 35px; text-align: left;">
-                                        <input id="clipboard-example-textarea" [(ngModel)]="value1"  size="29">
-                                        <button [cdkCopyToClipboard]="value1">Copy to clipboard</button>
+                                    <td style="padding:0 35px; text-align: right;">
+                                        <input id="clipboard-example-textarea" [(ngModel)]="value1"  size="40">
+                                    </td>
+                                    <td style="padding:0 35px; text-align: left">                                      
+                                        <button [cdkCopyToClipboard]="value1"><mat-icon>file_copy</mat-icon></button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="height:40px;">&nbsp;</td>
+                                    <td style="height:40px;"  colspan="3">&nbsp;</td>
                                 </tr>
                             </table>
                         </td>
