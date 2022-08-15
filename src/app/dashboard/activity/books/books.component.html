@@ -3,14 +3,22 @@
   </div>
   <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
     <div>
-      <form uk-grid [formGroup]="searchForm" (ngSubmit)="pagsSearch()">
+      <!-- <form uk-grid [formGroup]="searchForm" (ngSubmit)="pagsSearch()">
         <div class="uk-width-1-1">
           <div class="uk-inline uk-width-1-1">
             <span class="uk-form-icon" uk-icon="icon: search"></span>
             <input class="uk-input" type="text" formControlName="search" placeholder="pencarian berdasarkan alamat email">
           </div>
         </div>
-      </form>
+      </form> -->
+      <mat-form-field appearance="fill">
+        <mat-label>Kategori Usia</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let food of Borns" [value]="food.born_category_title">
+            {{food.born_category_title}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div>
       <div class="uk-align-right uk-text-right">

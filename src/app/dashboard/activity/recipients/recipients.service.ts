@@ -5,10 +5,11 @@ import {catchError, throwError} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class BooksService {
+export class RecipientsService {
   token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0YjE4YTZjMS0yYmM0LTRmYjItODI2Yi1kM2UwMWQ3NzFjMWIiLCJpYXQiOjE2NjAzOTIyODR9.KVJgiE4gBXU5aiAISdelrmlmytxztiQaQo9buhd_Osg"
   
   private apiMemberUrl = 'http://202.67.10.240:3001/useractivity/books';
+  private apiBantuanUrl = 'http://202.67.10.240:3001/useractivity/recipientcats';
   httpOptions = {
     params: {
       born_category_title :'10-17 Tahun'
@@ -47,6 +48,13 @@ export class BooksService {
       .pipe(
         catchError(this.errorHandler)
       )
+  }
+
+  getBantuan() {
+    return this.httpClient.get( this.apiBantuanUrl, this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
   }
 
   pagsButton(params: string) {

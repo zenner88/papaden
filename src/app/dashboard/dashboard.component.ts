@@ -24,8 +24,8 @@ export class DashboardComponent implements OnInit {
     }
   }
   logout(){
-    this.router.navigate(['/login'])
-
+    localStorage.clear();
+    this.router.navigate(['/'])
   }
   constructor(private router:Router) { }
   ngOnInit(): void {

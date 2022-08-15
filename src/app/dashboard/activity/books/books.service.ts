@@ -9,6 +9,7 @@ export class BooksService {
   token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0YjE4YTZjMS0yYmM0LTRmYjItODI2Yi1kM2UwMWQ3NzFjMWIiLCJpYXQiOjE2NjAzOTIyODR9.KVJgiE4gBXU5aiAISdelrmlmytxztiQaQo9buhd_Osg"
   
   private apiMemberUrl = 'http://202.67.10.240:3001/useractivity/books';
+  private apiBornUrl = 'http://202.67.10.240:3001/useractivity/born';
   httpOptions = {
     params: {
       born_category_title :'10-17 Tahun'
@@ -49,6 +50,13 @@ export class BooksService {
       )
   }
 
+  getBorn() {
+    return this.httpClient.get( this.apiBornUrl, this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+  
   pagsButton(params: string) {
     this.urlParams = params;
     this.getAllUsersMember();

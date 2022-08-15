@@ -27,6 +27,7 @@ export class BooksComponent implements OnInit {
   searchForm = this.formBuilder.group({
     search: ''
   });
+  Borns: any;
 
   constructor(
     public booksService: BooksService,
@@ -36,6 +37,7 @@ export class BooksComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllUsersMember();
+    this.getBorn();
   }
 
   getAllUsersMember() {
@@ -46,6 +48,13 @@ export class BooksComponent implements OnInit {
       this.previous = data.links.previous;
       this.next = data.links.next;
       this.last = data.links.last;
+    });
+  }
+
+  getBorn() {
+    this.booksService.getBorn().subscribe((data: any) => {
+      this.Borns = data.data;
+      console.table(this.Borns);
     });
   }
 

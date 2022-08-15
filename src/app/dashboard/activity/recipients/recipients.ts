@@ -1,4 +1,4 @@
-export interface Books {
+export interface Recipients {
   "status": boolean,
   "id": string,
   "fullname": string,
@@ -12,6 +12,6 @@ export interface Books {
   "updated_on": Date
 }
 
-export interface BooksIDS {
+export interface RecipientsIDS {
   "id": string
 }

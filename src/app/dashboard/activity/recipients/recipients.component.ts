@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Books } from "./books";
-import { BooksService } from "./books.service";
+import { Recipients } from "./recipients";
+import { RecipientsService } from "./recipients.service";
 import { SelectionModel } from "@angular/cdk/collections";
 import { FormBuilder } from "@angular/forms";
 import {MatTableDataSource} from "@angular/material/table";
@@ -12,10 +12,10 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class RecipientsComponent implements OnInit {
 
-  memberUsers: Books[] = [];
+  memberUsers: Recipients[] = [];
   dataSource: any;
   displayedColumns: string[] = ['select', 'fullname', 'born_city', 'born_date', 'sex_category_title', 'phone', 'email', 'action'];
-  selection = new SelectionModel<Books>(true, []);
+  selection = new SelectionModel<Recipients>(true, []);
   first: string = '';
   previous: string = '';
   next: string = '';
@@ -27,25 +27,34 @@ export class RecipientsComponent implements OnInit {
   searchForm = this.formBuilder.group({
     search: ''
   });
+  Bantuan: any;
 
   constructor(
-    public booksService: BooksService,
+    public recipientsService: RecipientsService,
     private formBuilder: FormBuilder,
     public popUpMember: MatDialog
   ) { }
 
   ngOnInit(): void {
     this.getAllUsersMember();
+    this.getBantuan();
   }
 
   getAllUsersMember() {
-    this.booksService.getAllUsersMember().subscribe((data: any) => {
+    this.recipientsService.getAllUsersMember().subscribe((data: any) => {
       this.memberUsers = data.items;
-      this.dataSource = new MatTableDataSource<Books>(this.memberUsers);
+      this.dataSource = new MatTableDataSource<Recipients>(this.memberUsers);
       this.first = data.links.first;
       this.previous = data.links.previous;
       this.next = data.links.next;
       this.last = data.links.last;
+    });
+  }
+
+  getBantuan() {
+    this.recipientsService.getBantuan().subscribe((data: any) => {
+      this.Bantuan = data.data;
+      console.table(this.Bantuan);
     });
   }
 
@@ -66,7 +75,7 @@ export class RecipientsComponent implements OnInit {
     this.selection.select(...this.dataSource.data);
   }
 
-  checkboxLabel(row?: Books): string {
+  checkboxLabel(row?: Recipients): string {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
@@ -74,17 +83,17 @@ export class RecipientsComponent implements OnInit {
   }
 
   pagsButton(params: string) {
-    this.booksService.pagsButton(params);
+    this.recipientsService.pagsButton(params);
     return this.getAllUsersMember()
   }
 
   pagsSearch() {
-    this.booksService.pagsSearch(this.searchForm.get('search')?.value);
+    this.recipientsService.pagsSearch(this.searchForm.get('search')?.value);
     return this.getAllUsersMember();
   }
 
   delUsersRegister(ids: any) {
-    return this.booksService.delUsersMember(ids).subscribe(() => {
+    return this.recipientsService.delUsersMember(ids).subscribe(() => {
       this.getAllUsersMember();
     });
   }

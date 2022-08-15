@@ -14,8 +14,12 @@ import {MainComponent} from "./user/main/main.component";
 import {LoginComponent} from "./user/login/login.component";
 const routes: Routes = [
   {
-    path: '',
+    path: 'main',
     component: LoginComponent
+  },
+  {
+    path: '',
+    component: MainComponent
   },
   {
     path: 'login',
