@@ -2,8 +2,8 @@
     text-align: center;
 }
 .example-container{
-    height: 50%;
-    width: 20%;
+    height: 100%;
+    width: 100%;
     text-align: left;
 }
 .d-flex-center{
@@ -20,3 +20,8 @@
 .mt-top-2{
     margin-top: 10px;
 }
+.center {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+  }

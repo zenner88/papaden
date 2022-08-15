@@ -41,6 +41,8 @@ import { MatOptionModule } from '@angular/material/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 import { OktaAuth } from '@okta/okta-auth-js';
 @NgModule({
   declarations: [
@@ -85,7 +87,8 @@ import { OktaAuth } from '@okta/okta-auth-js';
     MatOptionModule,
     MatSidenavModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSnackBarModule
   ],
   providers: [
     {
