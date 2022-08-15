@@ -23,9 +23,25 @@ import {BooksComponent} from "./dashboard/activity/books/books.component";
 import {ConsultantComponent} from "./dashboard/consultant/consultant.component";
 import {ZoomComponent} from "./user/zoom/zoom.component";
 import {ResetpasswordComponent} from "./user/resetpassword/resetpassword.component";
+import {MainComponent} from "./user/main/main.component";
+import {LoginComponent} from "./user/login/login.component";
 
 import {ClipboardModule} from '@angular/cdk/clipboard';
-import {MatIconModule} from '@angular/material/icon';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { OktaAuth } from '@okta/okta-auth-js';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +56,9 @@ import {MatIconModule} from '@angular/material/icon';
     BooksComponent,
     RecipientsComponent,
     ZoomComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    MainComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
@@ -55,9 +73,29 @@ import {MatIconModule} from '@angular/material/icon';
     MatCardModule,
     MatFormFieldModule,
     ClipboardModule,
-    MatIconModule
+    MatIconModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: OktaAuth,
+      useValue: new OktaAuth({
+        issuer: 'https://dev-29891275.okta.com',
+        clientId: '0oa661l5ff0dnqZZ65d7',
+      })
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

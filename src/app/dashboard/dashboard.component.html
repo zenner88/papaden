@@ -1,66 +1,66 @@
-<div id="pd-dashboard-container">
-  <header>
-    <section uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
-      <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
-        <div class="uk-navbar-left uk-margin-medium-left">
-          <a class="uk-navbar-item uk-logo" href="/">papaden</a>
-        </div>
-        <div class="uk-navbar-right uk-margin-medium-right">
-          <ul class="uk-navbar-nav">
+<mat-toolbar style="background-color: #0784F0; color: aliceblue;" class="example-toolbar">
+	<button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+	<img src="https://papaden.org/img/logo_papaden.png" width="160px">
+  <div fxShow="true" fxFlex fxLayout>
+    <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+
+    <div fxFlex fxLayoutAlign="flex-end center">
+      <button mat-mini-fab color="warn" (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+	<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+		<mat-nav-list>
+			<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+				<span class="full-width" *ngIf="isExpanded || isShowing">Dashboard Menu</span>
+				<mat-icon mat-list-icon>home</mat-icon>
+				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+			</mat-list-item>
+			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+        <div>
+          <ul class="uk-nav uk-nav-default">
+            <li class="uk-active">
+              <a href="/dashboard/users">users</a>
+            </li>
             <li>
-              <a href="#offcanvas-navs" uk-icon="icon: menu" uk-toggle></a>
+              <a href="/dashboard/users/register">register</a>
+            </li>
+            <li>
+              <a href="/dashboard/users/member">member</a>
+            </li>
+            <li class="uk-active">
+              <a href="/dashboard/consultant">registrasi teman bicara</a>
+            </li>
+            <li class="uk-active">
+              <a href="/dashboard/activity">aktifitas</a>
+            </li>
+            <li>
+              <a href="/dashboard/activity/books">teman bicara</a>
+            </li>
+            <li>
+              <a href="/dashboard/activity/recipients">penerima bantuan</a>
             </li>
           </ul>
         </div>
-      </nav>
-    </section>
-    <section>
-      <div class="uk-container uk-container-large">
-        <h3>dashboard</h3>
-      </div>
-    </section>
-  </header>
-  <main>
-    <div class="uk-container uk-container-large">
-      <router-outlet></router-outlet>
-    </div>
-  </main>
-  <footer>
-    <div class="uk-container uk-container-large">
-      <p class="uk-text-center uk-text-small uk-padding-small">
-        dikembangkan & dikelola oleh <a href="/" target="_blank" rel="noopener norefferer">papaden</a>&copy;2022.
-      </p>
-    </div>
-  </footer>
-</div>
-<section id="offcanvas-navs" uk-offcanvas="overlay: true">
-  <div class="uk-offcanvas-bar">
-    <button class="uk-offcanvas-close" type="button" uk-close></button>
-    <h3>dashboard menu</h3>
-    <div>
-      <ul class="uk-nav uk-nav-default">
-        <li class="uk-active">
-          <a href="/dashboard/users">users</a>
-        </li>
-        <li>
-          <a href="/dashboard/users/register">register</a>
-        </li>
-        <li>
-          <a href="/dashboard/users/member">member</a>
-        </li>
-        <li class="uk-active">
-          <a href="/dashboard/consultant">registrasi teman bicara</a>
-        </li>
-        <li class="uk-active">
-          <a href="/dashboard/activity">aktifitas</a>
-        </li>
-        <li>
-          <a href="/dashboard/activity/books">teman bicara</a>
-        </li>
-        <li>
-          <a href="/dashboard/activity/recipients">penerima bantuan</a>
-        </li>
-      </ul>
-    </div>
+        
+			</div>
+		</mat-nav-list>
+    <mat-nav-list>
+</mat-nav-list>
+	</mat-sidenav>
+
+	<div class="example-sidenav-content">
+    <router-outlet></router-outlet>
+	</div>
+
+</mat-sidenav-container>
+<footer>
+  <div class="uk-container uk-container-large">
+    <p class="uk-text-center uk-text-small uk-padding-small">
+      dikembangkan & dikelola oleh <a href="/" target="_blank" rel="noopener norefferer">papaden</a>&copy;2022.
+    </p>
   </div>
-</section>
+</footer>

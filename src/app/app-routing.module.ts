@@ -10,11 +10,16 @@ import {BooksComponent} from "./dashboard/activity/books/books.component";
 import {RecipientsComponent} from "./dashboard/activity/recipients/recipients.component";
 import {ZoomComponent} from "./user/zoom/zoom.component";
 import {ResetpasswordComponent} from "./user/resetpassword/resetpassword.component";
-
+import {MainComponent} from "./user/main/main.component";
+import {LoginComponent} from "./user/login/login.component";
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent
+    component: LoginComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'dashboard',
