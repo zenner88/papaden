@@ -14,7 +14,7 @@ export class BooksComponent implements OnInit {
 
   memberUsers: Books[] = [];
   dataSource: any;
-  displayedColumns: string[] = ['select', 'fullname', 'born_city', 'born_date', 'sex_category_title', 'phone', 'email', 'action'];
+  displayedColumns: string[] = ['select', 'fullname', 'born_date', 'consultant_fullname', 'book_date', 'book_phone', 'book_tags', 'status',  'action'];
   selection = new SelectionModel<Books>(true, []);
   first: string = '';
   previous: string = '';
@@ -49,6 +49,13 @@ export class BooksComponent implements OnInit {
       this.next = data.links.next;
       this.last = data.links.last;
     });
+  }
+
+  kategoriUsiaGet(event:any){
+    console.log(event);
+    let kategori = event.target.textContent.trim()
+    this.booksService.byKategori(kategori);
+    return this.getAllUsersMember();
   }
 
   getBorn() {

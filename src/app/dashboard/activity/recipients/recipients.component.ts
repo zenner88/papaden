@@ -14,7 +14,7 @@ export class RecipientsComponent implements OnInit {
 
   memberUsers: Recipients[] = [];
   dataSource: any;
-  displayedColumns: string[] = ['select', 'fullname', 'born_city', 'born_date', 'sex_category_title', 'phone', 'email', 'action'];
+  displayedColumns: string[] = ['select', 'regs_fullname', 'regs_city', 'regs_borndate', 'regs_phone', 'regs_edu', 'rec_cat_title', 'status',  'action'];
   selection = new SelectionModel<Recipients>(true, []);
   first: string = '';
   previous: string = '';
@@ -96,6 +96,13 @@ export class RecipientsComponent implements OnInit {
     return this.recipientsService.delUsersMember(ids).subscribe(() => {
       this.getAllUsersMember();
     });
+  }
+
+  kategoriBantuanGet(event:any){
+    console.log(event);
+    let kategori = event.target.textContent.trim()
+    this.recipientsService.byKategori(kategori);
+    return this.getAllUsersMember();
   }
 
   // popUpMemberUpdate() {

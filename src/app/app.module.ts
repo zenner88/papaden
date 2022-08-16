@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -91,13 +91,7 @@ import { OktaAuth } from '@okta/okta-auth-js';
     MatSnackBarModule
   ],
   providers: [
-    {
-      provide: OktaAuth,
-      useValue: new OktaAuth({
-        issuer: 'https://dev-29891275.okta.com',
-        clientId: '0oa661l5ff0dnqZZ65d7',
-      })
-    }
+    
   ],
   bootstrap: [AppComponent]
 })

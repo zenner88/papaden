@@ -16,7 +16,7 @@ export class MemberComponent implements OnInit {
 
   memberUsers: Member[] = [];
   dataSource: any;
-  displayedColumns: string[] = ['select', 'fullname', 'born_city', 'born_date', 'sex_category_title', 'phone', 'email', 'action'];
+  displayedColumns: string[] = ['select', 'fullname', 'born_city', 'born_date', 'sex_category_title', 'phone', 'email', 'status', 'isvolunteer', 'isrecipient', 'action'];
   selection = new SelectionModel<Member>(true, []);
   first: string = '';
   previous: string = '';
@@ -91,10 +91,13 @@ export class MemberComponent implements OnInit {
     });
   }
 
-  popUpMemberUpdate() {
+  popUpMemberUpdate(data:any) {
+    console.table(data)
+    localStorage.setItem('userEdit', JSON.stringify(data))
     const popUpRef = this.popUpMember.open(MemberpopupComponent);
     popUpRef.afterClosed().subscribe(() => {
       this.getAllUsersMember();
+      localStorage.removeItem('userEdit')
     })
   }
 

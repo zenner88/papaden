@@ -1,31 +1,31 @@
 <div id="pd-popupmemberupdate">
-  <div class="uk-placeholder uk-text-center uk-placeholder-warn">
+  <!-- <div class="uk-placeholder uk-text-center uk-placeholder-warn">
     warn
-  </div>
+  </div> -->
   <div class="uk-placeholder uk-text-center uk-placeholder-password">
     password recovery url
   </div>
   <form>
     <fieldset class="uk-fieldset">
       <div class="uk-margin">
-        <input class="uk-input" type="text" placeholder="fullname" formControlName="fullname" required>
+        <input class="uk-input" type="text" placeholder="fullname" formControlName="fullname" [value]="fullname" required>
       </div>
       <div class="uk-margin">
-        <input class="uk-input" type="text" placeholder="tempat lahir" formControlName="born_city">
+        <input class="uk-input" type="text" placeholder="tempat lahir" formControlName="born_city" [value]="born_city">
       </div>
       <div class="uk-margin">
-        <input class="uk-input" type="datetime-local" placeholder="tanggal lahir" formControlName="born_date">
+        <input class="uk-input" type="datetime-local" placeholder="tanggal lahir" formControlName="born_date" [value]="born_date">
       </div>
       <div class="uk-margin">
-        <select class="uk-select" formControlName="sex_category_title">
+        <select class="uk-select" formControlName="sex_category_title" [value]="sex_category_title">
 
         </select>
       </div>
       <div class="uk-margin">
-        <input class="uk-input" type="tel" placeholder="nomer telepon / hp" formControlName="phone" required>
+        <input class="uk-input" type="tel" placeholder="nomer telepon / hp" formControlName="phone" [value]="phone" required>
       </div>
       <div class="uk-margin">
-        <input class="uk-input" type="email" placeholder="email" formControlName="email" required>
+        <input class="uk-input" type="email" placeholder="email" formControlName="email" [value]="email" required>
       </div>
     </fieldset>
     <button class="uk-button uk-button-default uk-width-1-2">reset password</button>
