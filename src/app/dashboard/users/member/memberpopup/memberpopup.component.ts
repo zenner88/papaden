@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {catchError, throwError} from "rxjs";
+import {MatSnackBar} from '@angular/material/snack-bar';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-memberpopup',
@@ -6,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./memberpopup.component.sass']
 })
 export class MemberpopupComponent implements OnInit {
+  editForm!: FormGroup;
   id: any;
   fullname: any;
   born_city: any;
@@ -20,9 +29,24 @@ export class MemberpopupComponent implements OnInit {
   created_on: any;
   updated_on: any;
 
-  constructor() { }
-
+  constructor(
+    private formBuilder: FormBuilder,
+    private httpClient: HttpClient,
+    private _snackBar: MatSnackBar
+    ) { }
+    
+    
+    
   ngOnInit(): void {
+    this.editForm = this.formBuilder.group({
+      fullname: ['',[Validators.required,]],
+      id: ['',[Validators.required,]],
+      phone: ['',[Validators.required,]],
+      email: ['',[Validators.required,]],
+      isvolunteer: ['',[Validators.required,]],
+      isrecipient: ['',[Validators.required,]],
+    });
+
     let dataEdit: any = localStorage.getItem("userEdit");
     let data = JSON.parse(dataEdit);
     this.id = data.id;
@@ -38,5 +62,38 @@ export class MemberpopupComponent implements OnInit {
     this.isrecipient = data.isrecipient;
     this.created_on = data.created_on;
     this.updated_on = data.updated_on;
+  }
+
+  editMember(){
+    console.log(this.editForm.value)
+    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0YjE4YTZjMS0yYmM0LTRmYjItODI2Yi1kM2UwMWQ3NzFjMWIiLCJpYXQiOjE2NjAzOTIyODR9.KVJgiE4gBXU5aiAISdelrmlmytxztiQaQo9buhd_Osg"
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    }
+    let apiMemberUrl = 'http://202.67.10.240:3001/dashboard/users/member/'+this.editForm.value.id;
+    this.httpClient.patch(apiMemberUrl, this.editForm.value, httpOptions).subscribe((data: any) => {
+
+    console.log(data);
+      if (data.statusCode == 200)
+      {
+        this._snackBar.open("Data Berhasil di Update", "OK")
+      }else{
+        this._snackBar.open("Data Tidak Valid!", "OK")
+      }
+     })  
+  }
+
+
+
+  errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
+    let errorMessage : string;
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = error.error.message;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(errorMessage);
   }
 }

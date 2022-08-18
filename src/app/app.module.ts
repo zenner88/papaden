@@ -25,6 +25,7 @@ import {ZoomComponent} from "./user/zoom/zoom.component";
 import {ResetpasswordComponent} from "./user/resetpassword/resetpassword.component";
 import {MainComponent} from "./user/main/main.component";
 import {LoginComponent} from "./user/login/login.component";
+import {MemberpopupComponent} from "./dashboard/users/member/memberpopup/memberpopup.component";
 
 import {ClipboardModule} from '@angular/cdk/clipboard';
 
@@ -60,7 +61,8 @@ import { OktaAuth } from '@okta/okta-auth-js';
     ZoomComponent,
     ResetpasswordComponent,
     MainComponent,
-    LoginComponent
+    LoginComponent,
+    MemberpopupComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
