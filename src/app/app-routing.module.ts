@@ -8,6 +8,7 @@ import {ConsultantComponent} from "./dashboard/consultant/consultant.component";
 import {ActivityComponent} from "./dashboard/activity/activity.component";
 import {BooksComponent} from "./dashboard/activity/books/books.component";
 import {RecipientsComponent} from "./dashboard/activity/recipients/recipients.component";
+import {YoutubeComponent} from "./dashboard/youtube/youtube.component";
 import {ZoomComponent} from "./user/zoom/zoom.component";
 import {ResetpasswordComponent} from "./user/resetpassword/resetpassword.component";
 import {MainComponent} from "./user/main/main.component";
@@ -46,6 +47,10 @@ const routes: Routes = [
       {
         path: 'consultant',
         component: ConsultantComponent
+      },
+      {
+        path: 'youtube',
+        component: YoutubeComponent
       },
       {
         path: 'activity',

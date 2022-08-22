@@ -26,6 +26,7 @@ import {ResetpasswordComponent} from "./user/resetpassword/resetpassword.compone
 import {MainComponent} from "./user/main/main.component";
 import {LoginComponent} from "./user/login/login.component";
 import {MemberpopupComponent} from "./dashboard/users/member/memberpopup/memberpopup.component";
+import {YoutubeComponent} from "./dashboard/youtube/youtube.component";
 
 import {ClipboardModule} from '@angular/cdk/clipboard';
 
@@ -62,7 +63,8 @@ import { OktaAuth } from '@okta/okta-auth-js';
     ResetpasswordComponent,
     MainComponent,
     LoginComponent,
-    MemberpopupComponent
+    MemberpopupComponent,
+    YoutubeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),

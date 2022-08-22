@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-zoom',
-  templateUrl: './zoom.component.html',
-  styleUrls: ['./zoom.component.sass']
+  selector: 'app-youtube',
+  templateUrl: './youtube.component.html',
+  styleUrls: ['./youtube.component.sass']
 })
-export class ZoomComponent implements OnInit {
+export class YoutubeComponent implements OnInit {
 
   constructor(
     private _snackBar: MatSnackBar

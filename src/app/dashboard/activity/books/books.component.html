@@ -83,7 +83,7 @@
       <!-- Tags -->
       <ng-container matColumnDef="book_tags">
         <th mat-header-cell *matHeaderCellDef> Tags </th>
-        <td mat-cell *matCellDef="let tag of element"> {{ tag.book_tags }} </td>
+        <td mat-cell *matCellDef="let tag of element"> <div *ngIf="tag.book_tags.tags_category_title">{{tag.book_tags.tags_category_title}}</div></td>
       </ng-container>
       <!-- Status -->
       <ng-container matColumnDef="status">

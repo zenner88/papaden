@@ -72,7 +72,7 @@ export class MemberpopupComponent implements OnInit {
         'Authorization': `Bearer ${token}`
       })
     }
-    let apiMemberUrl = 'http://202.67.10.240:3001/dashboard/users/member/'+this.editForm.value.id;
+    let apiMemberUrl = 'https://api-devs.papaden.org/dashboard/users/member/'+this.editForm.value.id;
     this.httpClient.patch(apiMemberUrl, this.editForm.value, httpOptions).subscribe((data: any) => {
 
     console.log(data);

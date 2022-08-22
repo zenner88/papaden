@@ -8,7 +8,7 @@ import {catchError, throwError} from "rxjs";
 export class RecipientsService {
   token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0YjE4YTZjMS0yYmM0LTRmYjItODI2Yi1kM2UwMWQ3NzFjMWIiLCJpYXQiOjE2NjAzOTIyODR9.KVJgiE4gBXU5aiAISdelrmlmytxztiQaQo9buhd_Osg"
   
-  private apiBantuanUrl = 'http://202.67.10.240:3001/useractivity/recipientcats';
+  private apiBantuanUrl = 'https://api-devs.papaden.org/useractivity/recipientcats';
   httpOptions = {
     headers: new HttpHeaders({
       'Authorization': `Bearer ${this.token}`
@@ -32,7 +32,7 @@ export class RecipientsService {
     } else {
       var urlPrefix: any = '';
     }
-    this.apiMemberUrl = 'http://202.67.10.240:3001/useractivity/recipient/'+urlPrefix;
+    this.apiMemberUrl = 'https://api-devs.papaden.org/useractivity/recipient/'+urlPrefix;
 
     return this.httpClient.get( this.apiMemberUrl, this.httpOptions)
       .pipe(
