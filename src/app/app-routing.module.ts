@@ -13,6 +13,8 @@ import {ZoomComponent} from "./user/zoom/zoom.component";
 import {ResetpasswordComponent} from "./user/resetpassword/resetpassword.component";
 import {MainComponent} from "./user/main/main.component";
 import {LoginComponent} from "./user/login/login.component";
+import {BannerComponent} from "./dashboard/banner/banner.component";
+
 const routes: Routes = [
   {
     path: 'main',
@@ -51,6 +53,10 @@ const routes: Routes = [
       {
         path: 'youtube',
         component: YoutubeComponent
+      },
+      {
+        path: 'banner',
+        component: BannerComponent
       },
       {
         path: 'activity',

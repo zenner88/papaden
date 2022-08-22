@@ -27,6 +27,7 @@ import {MainComponent} from "./user/main/main.component";
 import {LoginComponent} from "./user/login/login.component";
 import {MemberpopupComponent} from "./dashboard/users/member/memberpopup/memberpopup.component";
 import {YoutubeComponent} from "./dashboard/youtube/youtube.component";
+import {BannerComponent} from "./dashboard/banner/banner.component";
 
 import {ClipboardModule} from '@angular/cdk/clipboard';
 
@@ -64,7 +65,8 @@ import { OktaAuth } from '@okta/okta-auth-js';
     MainComponent,
     LoginComponent,
     MemberpopupComponent,
-    YoutubeComponent
+    YoutubeComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
