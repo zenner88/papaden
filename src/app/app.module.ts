@@ -45,6 +45,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {SafePipe} from "./safe.pipe";
 
 import { OktaAuth } from '@okta/okta-auth-js';
 @NgModule({
@@ -66,7 +67,8 @@ import { OktaAuth } from '@okta/okta-auth-js';
     LoginComponent,
     MemberpopupComponent,
     YoutubeComponent,
-    BannerComponent
+    BannerComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
