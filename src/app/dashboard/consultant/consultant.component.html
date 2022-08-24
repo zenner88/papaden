@@ -22,7 +22,7 @@
 </div>
 
 <div id="pd-consultant">
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="dataSource" width="100%">
     <!-- SELECT -->
     <ng-container matColumnDef="select">
       <th mat-header-cell *matHeaderCellDef>
@@ -41,9 +41,9 @@
       </td>
     </ng-container>
     <!-- FULLNAME -->
-    <ng-container matColumnDef="consultant_id">
-      <th mat-header-cell *matHeaderCellDef> ID. Teman Bicara </th>
-      <td mat-cell *matCellDef="let element"> {{ element.consultant_id }} </td>
+    <ng-container matColumnDef="consultant_id" style="display: none;">
+      <th mat-header-cell *matHeaderCellDef style="display: none;"> ID. Teman Bicara </th>
+      <td mat-cell *matCellDef="let element" style="display: none;"> {{ element.consultant_id }} </td>
     </ng-container>
     <!-- BORN CITY -->
     <ng-container matColumnDef="consultant_fullname">
@@ -74,7 +74,12 @@
     <ng-container matColumnDef="consultant_profil_url">
       <th mat-header-cell *matHeaderCellDef> Profil </th>
       <td mat-cell *matCellDef="let element">
-        <img class="uk-border-circle" width="40" height="40" src="{{ element.consultant_profil_url }} ">
+        <img *ngIf="element.consultant_profil_url" class="uk-border-circle" width="40" height="40" src="{{ element.consultant_profil_url }} ">
+        <div class="rows" *ngIf="!element.consultant_profil_url">
+          <div class="circles">
+            {{ getInitials(element.consultant_fullname) }}
+          </div>
+        </div>
       </td>
     </ng-container>
     <!-- ACTION -->

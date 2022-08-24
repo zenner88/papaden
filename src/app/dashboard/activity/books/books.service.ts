@@ -32,7 +32,8 @@ export class BooksService {
     } else {
       var urlPrefix: any = '';
     }
-    this.apiMemberUrl = 'https://api-devs.papaden.org/useractivity/books?born_category_title='+urlPrefix;
+    // this.apiMemberUrl = 'https://api-devs.papaden.org/useractivity/books?born_category_title='+urlPrefix;
+    this.apiMemberUrl = 'https://api-devs.papaden.org/dashboard/activity/books';
 
     return this.httpClient.get( this.apiMemberUrl, this.httpOptions)
       .pipe(

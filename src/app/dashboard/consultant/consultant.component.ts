@@ -9,7 +9,7 @@ import {MatTableDataSource} from "@angular/material/table";
 @Component({
   selector: 'app-consultant',
   templateUrl: './consultant.component.html',
-  styleUrls: ['./consultant.component.sass']
+  styleUrls: ['./consultant.component.scss']
 })
 export class ConsultantComponent implements OnInit {
 
@@ -81,5 +81,12 @@ export class ConsultantComponent implements OnInit {
   pagsSearch() {
     this.consultantService.pagsSearch(this.searchForm.get('search')?.value);
     return this.getAllConsultant();
+  }
+
+  getInitials(nameString:any){
+    const fullName = nameString.split(' ');
+    const initials = fullName.shift().charAt(0);
+    console.log(initials)
+    return initials.toUpperCase();
   }
 }

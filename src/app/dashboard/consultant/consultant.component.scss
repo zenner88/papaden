@@ -1,0 +1,20 @@
+.rows {
+  display: flex;
+  align-items: center;
+}
+.circles{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: #eee;
+  border : 2px solid #fff;
+  text-align: center;
+  line-height: 40px;
+  
+}
+.rows .circles:not(:first-child) {
+margin-left: -18px;
+}
+.rows .circles:nth-child(n+5){
+   display: none;
+  }
