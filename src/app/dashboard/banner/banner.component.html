@@ -1,51 +1,34 @@
+<div class="container">
+    <div class="row">
+      <div class="col-4" *ngFor="let banners of banner">
+        <div class="card m-2">
+            <!-- <form id="{{banners.identifier}}" [formGroup]="FormBanner" (ngSubmit)="bannerGo()"> -->
+            <!-- <iframe *ngIf="banners.type == 'video'" src="{{banners.url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="card-img-top"></iframe> -->
+            <img *ngIf="banners.type == 'image'" src="{{banners.hyperlink}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h2 class="card-title text-center bg-info">{{banners.identifier}}</h2>
+                <input class="form-control" type="hidden" name="identifier" id="identifier-{{banners.identifier}}" [ngModel]="banners.identifier">
+                <div class="mb-3">
+                    <select class="form-select" [(ngModel)]="banners.type" name="type" id="type-{{banners.identifier}}">
+                        <option value="image">Image</option>
+                        <option value="video">Video</option>
+                    </select>
+                </div>
+                <div class="mb-3" *ngIf="banners.type == 'image'">
+                    <input class="form-control" type="file" id="formFile" name="file" (change)="dataFile1($event)" id="file-{{banners.identifier}}">
+                    <input class="form-control" type="hidden" name="hyperlink" [ngModel]="banners.identifier+'.png'" id="hyperlink-{{banners.identifier}}">
+                </div>
+                <div class="mb-3" *ngIf="banners.type == 'video'">
+                    <label class="form-label">Link Video / Youtube</label>
+                    <input class="form-control" type="text" name="url" [ngModel]="banners.url" id="url-{{banners.identifier}}">
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <button class="btn btn-primary" (click)="bannerGo(banners.identifier)">Update</button>
+            </div>
+            <!-- </form> -->
+        </div>
+      </div>
+    </div>
+  </div>
 <div>
-    <mat-grid-list [cols]="breakpoint" fit="2">
-        <mat-grid-tile>
-            <table width="100%" border="0" align="left" cellpadding="0" cellspacing="1"
-                style="background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
-                <tr>
-                    <td style="height:40px;" colspan="2">
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding:0 35px; text-align: left;"  width="70%">    
-                        <form [formGroup]="FormBanner1" (ngSubmit)="banner1()">
-                            <label for=""><b>Banner 1 : </b> </label>                                  
-                            <input type="file" id="banner2" formControlName="file" (change)="dataFile1($event)">
-                            <button style="margin-left: 8px;" type="submit">Update</button>
-                        </form>           
-                        <img [src]="banner1show" alt="" style="max-height: 180px; margin: 20px;">
-                    </td>
-                </tr>
-                <tr>
-                    <td style="height:40px;"  colspan="3">&nbsp;</td>
-                </tr>
-            </table>
-        </mat-grid-tile>
-        <mat-grid-tile>
-            <table width="100%" border="0" align="left" cellpadding="0" cellspacing="1"
-                style="max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
-                <tr>
-                    <td style="height:40px;" colspan="2">
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding:0 35px; text-align: left;">
-                        <form [formGroup]="FormBanner2" (ngSubmit)="banner2()">
-                            <label for=""><b>Banner 2 : </b> </label>                                  
-                            <input type="file" id="banner2" formControlName="file" (change)="dataFile2($event)">
-                            <button style="margin-left: 8px;" type="submit">Update</button>
-                        </form>
-                        <img [src]="banner2show" alt="" style="max-height: 180px; margin: 20px;">
-                    </td>
-                    <td style="padding:0 35px; text-align: left">                                      
-                    </td>
-                </tr>
-                <tr>
-                    <td style="height:40px;" colspan="2">
-                    </td>
-                </tr>
-            </table>
-        </mat-grid-tile>
-    </mat-grid-list>
-</div>

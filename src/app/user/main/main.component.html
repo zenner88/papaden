@@ -15,7 +15,7 @@
 </head>
 <body id="body">
     <section id="mobileNav">
-        <li class="close-nav"><img src="./assets/close.png" alt="" onclick="closeNav()"></li>
+        <li class="close-nav"><img src="./assets/close.png" alt="" (click)="closeNav()"></li>
         <ul class="mobile-menu">
             <li class="menu-item"> <a (click)="toDiv('layanan')">Layanan</a></li>
             <li class="menu-item"><a (click)="toDiv('tentang')">Tentang Kami</a></li>
@@ -27,8 +27,7 @@
     <nav>
         <div class="container">
             <div class="nav logo">
-                <a href="/"><img src="./assets/logo_papaden.png" style="cursor: pointer;">
-                </a>
+                <a href="/"><img src="./assets/logo_papaden.png" style="cursor: pointer;"></a>
             </div>
             <ul class="nav menu">
                 <li class="menu-item"> <a (click)="toDiv('layanan')">Layanan</a></li>
@@ -37,7 +36,7 @@
                 <li class="menu-item"><a href="#"> <i class="fa-solid fa-earth-africa fa-2x"></i></a></li>
                 <li class="menu-item"><a href="login"><i class="fa-solid fa-user fa-2x"></i></a></li>
             </ul>
-            <div class="menu-toggle" onclick="showNav()">
+            <div class="menu-toggle" (click)="showNav()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -50,10 +49,11 @@
                 <div class="title-wrap">
                     <h1><span># 1</span> &nbsp; Aplikasi membantu sesama di Indonesia</h1>
                 </div>
+                <div style="height: 30px;"></div>
                 <div class="intro-left-p">
                     <p>Papaden adalah Aplikasi yang saling membantu memberikan solusi & pencerahan.</p>
                 </div>
-                 <button onclick="googlePlay()" class="btn-google-play">
+                 <button (click)="googlePlay()" class="btn-google-play">
                     <img src="./assets/google_play_badge.svg" alt="google_play">
                 </button>
             </div>
@@ -115,51 +115,69 @@
             </div>
             <div class="right odd">
                 <div class="desc-wrap">
-                    <p>
-                        Papaden adalah sebuah aplikasi yang peduli membantu memberikan solusi bagi orang yang membutuhkan jawaban & merupakan tempat untuk pertemanan (komunitas) dalam sebuah platform aplikasi.
-                    </p>
-                    <BR>
-                    <b>VISI :</b> <BR>
-                    <ul>
-                        <li class="produk-desc">&check; &nbsp; Menolong antar sesama dengan memberikan harapan dan solusi masa depan yang lebih baik</li>
-                        <li class="produk-desc">&check; &nbsp; Membangun, membangkitkan dan melaksanakan kepedulian sosial antar sesama</li>
-                    </ul>
-                    <BR>
-                    <b>MISI :</b> <BR>
-                    <ul>
-                        <li class="produk-desc">&check; &nbsp; Mengajak sebanyak mungkin orang-orang untuk menjadi sukarelawan peduli sesama.</li>
-                        <li class="produk-desc">&check; &nbsp; Menjadi solusi bagi orang-orang yang membutuhkan pertolongan dibeberapa bidang yang tersedia (saat ini : konsultasi kehidupan dan pendidikan)</li>
-                        <li class="produk-desc">&check; &nbsp; Mengajak sebanyak mungkin orang-orang sebagai orang tua asuh, donatur dan juga institusi pendidikan untuk memberikan kesempatan pendidikan secara gratis bagi orang-orang yang kurang/tidak mampu.</li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-10">
+                            <p>
+                                Papaden adalah sebuah aplikasi yang peduli membantu memberikan solusi bagi orang yang membutuhkan jawaban & merupakan tempat untuk pertemanan (komunitas) dalam sebuah platform aplikasi.
+                            </p><BR>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-10">
+                            <b>VISI :</b> <BR>
+                            <ul>
+                                <li class="produk-desc">Menolong antar sesama dengan memberikan harapan dan solusi masa depan yang lebih baik</li>
+                                <li class="produk-desc">Membangun, membangkitkan dan melaksanakan kepedulian sosial antar sesama</li>
+                            </ul><BR>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-10">
+                            <b>MISI :</b> <BR>
+                            <ul>
+                                <li class="produk-desc">Mengajak sebanyak mungkin orang-orang untuk menjadi sukarelawan peduli sesama.</li>
+                                <li class="produk-desc">Menjadi solusi bagi orang-orang yang membutuhkan pertolongan dibeberapa bidang yang tersedia (saat ini : konsultasi kehidupan dan pendidikan)</li>
+                                <li class="produk-desc">Mengajak sebanyak mungkin orang-orang sebagai orang tua asuh, donatur dan juga institusi pendidikan untuk memberikan kesempatan pendidikan secara gratis bagi orang-orang yang kurang/tidak mampu.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="left even">
-                <div class="section-title produk">
-                    <h2 class="produk-title">#Peduli itu sederhana</h2>
-                </div>
-                <div class="desc-wrap">
-                    <b>Produk :</b> <BR>
-                    <ul>
-                        <li class="produk-desc">&check; &nbsp; Teman bicara (User)</li>
-                        <li class="produk-desc">&check; &nbsp; Teman Sukarelawan (Team)</li>
-                        <li class="produk-desc">&check; &nbsp; Teman Berbagi (Donasi)</li>
-                    </ul>
-                    <b>Mitra :</b> <BR>
-                    <ul>
-                        <li class="produk-desc">&check; &nbsp; Sekolah</li>
-                        <li class="produk-desc">&check; &nbsp; Perusahaan</li>
-                        <li class="produk-desc">&check; &nbsp; Yayasan</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="right even">
-                <img src="./assets/produk_aplikasi_hero.png" alt=" ">
             </div>
         </div>
     </section>
-
-    <section class="kontak" id="kontak">
+    <section class="layanan" id="tentang">
+        <div class="container">
+            <div class="row ">
+                <div class="col-12 ">
+                    <h1>#Peduli itu sederhana</h1>
+    
+                </div>
+                <div class="col-2 "></div>
+                <div class="col-10 col-lg-4 ">
+                    <b>Produk :</b> <BR>
+                    <ul class="p-2">
+                        <li class="produk-desc">Teman bicara (User)</li>
+                        <li class="produk-desc">Teman Sukarelawan (Team)</li>
+                        <li class="produk-desc">Teman Berbagi (Donasi)</li>
+                    </ul>
+                </div>
+                <div class="col-2 "></div>
+                <div class="col-10 col-lg-4 ">
+                    <b>Mitra :</b> <BR>
+                    <ul class="p-2">
+                        <li class="produk-desc">Sekolah</li>
+                        <li class="produk-desc">Perusahaan</li>
+                        <li class="produk-desc">Yayasan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="left even">
+            </div>
+            <div class="right even">
+            </div>
+        </div>
+    </section>
+    <div style="height: 50px;"></div>
+    <section class="kontak bg-light pt-4" id="kontak">
         <div class="container">
             <div class="section-title kontak">
                 <h2 style="text-align: center;">KONTAK</h2>
@@ -234,7 +252,7 @@
         </div>
     </footer>
 </body>
-<script>
+<!-- <script>
     function showProduk() {
         let x = document.getElementById("listProduk");
         if (x.style.display !== "block") {
@@ -266,25 +284,5 @@
         document.getElementById("mobileNav").style.display = "none";
         document.getElementById("body").style.overflow = "visible";
     }
-
-    function viewMitra() {
-        let mitra = document.getElementById("sectionMitra");
-        mitra.scrollIntoView();
-    }
-
-    function viewKontak() {
-        let mitra = document.getElementById("sectionKontak");
-        mitra.scrollIntoView();
-    }
-    
-    function viewLayanan() {
-        let mitra = document.getElementById("sectionLayanan");
-        mitra.scrollIntoView();
-    }
-    
-    function viewAbout() {
-        let mitra = document.getElementById("sectionAbout");
-        mitra.scrollIntoView();
-    }
-</script>
+</script> -->
 </html>
