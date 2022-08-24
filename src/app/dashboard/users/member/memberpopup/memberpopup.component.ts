@@ -28,6 +28,8 @@ export class MemberpopupComponent implements OnInit {
   isrecipient: any;
   created_on: any;
   updated_on: any;
+  isvolunteerC: any |undefined;
+  isrecipientC: any |undefined;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -72,19 +74,40 @@ export class MemberpopupComponent implements OnInit {
         'Authorization': `Bearer ${token}`
       })
     }
-    let apiMemberUrl = 'https://api-devs.papaden.org/dashboard/users/member/'+this.editForm.value.id;
-    this.httpClient.patch(apiMemberUrl, this.editForm.value, httpOptions).subscribe((data: any) => {
-
-    console.log(data);
-      if (data.statusCode == 200)
-      {
-        this._snackBar.open("Data Berhasil di Update", "OK")
-      }else{
-        this._snackBar.open("Data Tidak Valid!", "OK")
-      }
-     })  
+    let cekV = this.editForm.value.isvolunteer
+    let cekR = this.editForm.value.isrecipient
+    console.log(cekV)
+    console.log(cekR)
+    if (cekV == "true" && cekR == "true"){
+      this._snackBar.open("Hanya Bisa Aktif 1 (Volunteer / Penerima Bantuan)", "OK")
+    }else{
+      let apiMemberUrl = 'https://api-devs.papaden.org/dashboard/users/member/'+this.editForm.value.id;
+      this.httpClient.patch(apiMemberUrl, this.editForm.value, httpOptions).subscribe((data: any) => {
+  
+      console.log(data);
+        if (data.statusCode == 200)
+        {
+          this._snackBar.open("Data Berhasil di Update", "OK")
+        }else{
+          this._snackBar.open("Data Tidak Valid!", "OK")
+        }
+       })  
+    }
   }
 
+  changeBantuan(isvolunteer:any){
+    console.log(isvolunteer)
+    if (isvolunteer === "false"){
+      this.isvolunteerC = isvolunteer 
+    }
+  }
+  
+  changeVol(isvolunteer:any){
+    console.log(isvolunteer)
+    if (isvolunteer === "false"){
+      this.isrecipientC = isvolunteer 
+    }
+  }
 
 
   errorHandler(error: { error: { message: string; }; status: any; message: any; }) {

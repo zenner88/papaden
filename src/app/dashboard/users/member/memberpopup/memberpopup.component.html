@@ -34,23 +34,23 @@
       <div class="uk-margin">
         <mat-form-field appearance="fill">
           <mat-label>Volunteer</mat-label>
-          <mat-select formControlName="isvolunteer" [ngModel]="isvolunteer" required>
-            <mat-option value="new">Baru</mat-option>
-            <mat-option value="requested">Mengajukan</mat-option>
-            <mat-option value="true">Aktif</mat-option>
-            <mat-option value="false">Banned</mat-option>
+          <mat-select id="vol" formControlName="isvolunteer" [(ngModel)]="isvolunteer" [value]="isrecipientC" (valueChange)="changeBantuan(isvolunteer)" required>
+            <!-- <mat-option value="new">Baru</mat-option>
+              <mat-option value="requested">Mengajukan</mat-option> -->
+              <mat-option value="true">Aktif</mat-option>
+              <mat-option value="false">Banned</mat-option>
           </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="uk-margin">
-        <mat-form-field appearance="fill">
-          <mat-label>Penerima Bantuan</mat-label>
-          <mat-select formControlName="isrecipient" [ngModel]="isrecipient" required>
-            <mat-option value="new">Baru</mat-option>
-            <mat-option value="requested">Mengajukan</mat-option>
-            <mat-option value="true">Aktif</mat-option>
-            <mat-option value="false">Banned</mat-option>
-          </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="uk-margin">
+          <mat-form-field appearance="fill">
+            <mat-label>Penerima Bantuan</mat-label>
+            <mat-select id="bantuan" formControlName="isrecipient" [(ngModel)]="isrecipient" [value]="isvolunteerC" (valueChange)="changeVol(isrecipient)" required>
+              <!-- <mat-option value="new">Baru</mat-option>
+                <mat-option value="requested">Mengajukan</mat-option> -->
+                <mat-option value="true">Aktif</mat-option>
+                <mat-option value="false">Banned</mat-option>
+            </mat-select>
         </mat-form-field>
       </div>
     </fieldset>

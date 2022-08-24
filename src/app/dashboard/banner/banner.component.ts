@@ -41,10 +41,10 @@ export class BannerComponent implements OnInit {
     this.FormBanner2 = this.formBuilder.group({
       file: ['',[Validators.required,]],
     });
-    this.banner1show = "https://api-devs.papaden.org:3000/images/carousel_image_1.png";
-    this.banner2show = "https://api-devs.papaden.org:3000/images/carousel_image_2.png";
+    this.banner1show = "https://api-devs.papaden.org/images/carousel_image_1.png";
+    this.banner2show = "https://api-devs.papaden.org/images/carousel_image_2.png";
 
-    let apiBanner = 'https://api-devs.papaden.org:3000/banner_link/';
+    let apiBanner = 'https://api-devs.papaden.org/banner_link/';
     this.httpClient.get(apiBanner).subscribe((data: any) => {
       this.banner = data.data;
       let length = this.banner.length;
@@ -65,7 +65,7 @@ export class BannerComponent implements OnInit {
   banner1(){
     const formData: FormData = new FormData();
     formData.append('file', this.file1);
-    let apiMemberUrl = 'https://api-devs.papaden.org:3000/upload-image1';
+    let apiMemberUrl = 'https://api-devs.papaden.org/upload-image1';
     this.httpClient.post(apiMemberUrl, formData).subscribe((data: any) => {
     console.log(data);
       if (data.message == "File uploaded successfully.")
@@ -87,7 +87,7 @@ export class BannerComponent implements OnInit {
   banner2(){
     const formData: FormData = new FormData();
     formData.append('file', this.file2);
-    let apiMemberUrl = 'https://api-devs.papaden.org:3000/upload-image2';
+    let apiMemberUrl = 'https://api-devs.papaden.org/upload-image2';
     this.httpClient.post(apiMemberUrl, formData).subscribe((data: any) => {
     console.log(data);
       if (data.message == "File uploaded successfully.")
@@ -117,7 +117,7 @@ export class BannerComponent implements OnInit {
       formData.append('type', type);
       formData.append('url', url);
       formData.append('file', this.file1);
-      formData.append('hyperlink', "https://api-devs.papaden.org:3000/images/"+hyperlink);
+      formData.append('hyperlink', "http://202.67.10.240:3000/images/"+hyperlink);
 
  
     const formData2 ={
@@ -127,30 +127,30 @@ export class BannerComponent implements OnInit {
 
     console.log(formData)
     if (type == 'image'){
-      let apiMemberUrl = 'https://api-devs.papaden.org:3000/banner_link/'+identifier;
+      let apiMemberUrl = 'https://api-devs.papaden.org/banner_link/'+identifier;
       this.httpClient.put(apiMemberUrl, formData).subscribe((data: any) => {
       console.log(data);
         if (data.message == "banner_link updated successfully")
         {
           this._snackBar.open("Media Berhasil di Update", "OK", {duration: 3000})
-          setTimeout(function(){
-            window.location.reload();
-        }, 2000);
+          // setTimeout(function(){
+            this.ngOnInit();
+        // }, 2000);
         }else{
           this._snackBar.open("Data Tidak Valid!", "OK", {duration: 3000})
         }
       })  
     }
     if (type == 'video'){
-      let apiMemberUrl = 'https://api-devs.papaden.org:3000/banner_link/'+identifier;
+      let apiMemberUrl = 'https://api-devs.papaden.org/banner_link/'+identifier;
       this.httpClient.put(apiMemberUrl, formData2).subscribe((data: any) => {
       console.log(data);
         if (data.message == "banner_link updated successfully")
         {
           this._snackBar.open("Media Berhasil di Update", "OK", {duration: 3000})
-          setTimeout(function(){
-            window.location.reload();
-        }, 2000);
+          // setTimeout(function(){
+            this.ngOnInit();
+        // }, 2000);
         }else{
           this._snackBar.open("Data Tidak Valid!", "OK", {duration: 3000})
         }
@@ -166,5 +166,10 @@ export class BannerComponent implements OnInit {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     return throwError(errorMessage);
+  }
+
+  replaceUrl(ss:any){
+    console.log("sss",ss)
+    ss.replace('watch?v=', 'embed/');
   }
 }

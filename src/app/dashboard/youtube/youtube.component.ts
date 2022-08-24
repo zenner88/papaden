@@ -17,7 +17,7 @@ export class YoutubeComponent implements OnInit {
 
   ) { }
   ngOnInit(): void {
-    let banner = 'https://api-devs.papaden.org:3000/youtube';
+    let banner = 'https://api-devs.papaden.org/youtube';
     this.httpClient.get(banner).subscribe((data: any) => {
     console.log(data.data);
     this.link = data.data;
@@ -30,7 +30,7 @@ link1(no:any){
   var id = (<HTMLInputElement>document.getElementById('id'+no)).value;
   console.log(data,"+",id);
     
-    let apiMemberUrl = 'https://api-devs.papaden.org:3000/youtube/'+id;
+    let apiMemberUrl = 'https://api-devs.papaden.org/youtube/'+id;
     this.httpClient.put(apiMemberUrl, body).subscribe((data: any) => {
     console.log(data);
       if (data.message == 'Banner updated successfully')

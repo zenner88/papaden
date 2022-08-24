@@ -3,7 +3,7 @@
       <div class="col-4" *ngFor="let banners of banner">
         <div class="card m-2 shadow p-3 mb-5 bg-body rounded">
             <!-- <form id="{{banners.identifier}}" [formGroup]="FormBanner" (ngSubmit)="bannerGo()"> -->
-            <iframe *ngIf="banners.type == 'video'" src="{{banners.url | safe: 'url'}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="card-img-top"></iframe>
+            <iframe *ngIf="banners.type == 'video'" [src]="banners.url.replace('watch?v=', 'embed/') | safe: 'resourceUrl'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="card-img-top"></iframe>
             <img *ngIf="banners.type == 'image'" src="{{banners.hyperlink}}" class="card-img-top" alt="...">
             <h2 class="card-title text-center text-light bg-primary">{{banners.identifier}}</h2>
             <div class="card-body">
