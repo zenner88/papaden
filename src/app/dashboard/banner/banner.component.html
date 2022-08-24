@@ -4,7 +4,7 @@
         <div class="card m-2 shadow p-3 mb-5 bg-body rounded">
             <!-- <form id="{{banners.identifier}}" [formGroup]="FormBanner" (ngSubmit)="bannerGo()"> -->
             <iframe *ngIf="banners.type == 'video'" [src]="banners.url.replace('watch?v=', 'embed/') | safe: 'resourceUrl'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="card-img-top"></iframe>
-            <img *ngIf="banners.type == 'image'" src="{{banners.hyperlink}}" class="card-img-top" alt="...">
+            <img *ngIf="banners.type == 'image' || banners.type == 'zoom'" src="{{banners.hyperlink}}" class="card-img-top" alt="...">
             <h2 class="card-title text-center text-light bg-primary">{{banners.identifier}}</h2>
             <div class="card-body">
                 <input class="form-control" type="hidden" name="identifier" id="identifier-{{banners.identifier}}" [ngModel]="banners.identifier">
@@ -12,14 +12,16 @@
                     <select class="form-select" [(ngModel)]="banners.type" name="type" id="type-{{banners.identifier}}">
                         <option value="image">Image</option>
                         <option value="video">Video</option>
+                        <option value="zoom">Zoom</option>
                     </select>
                 </div>
-                <div class="mb-3" *ngIf="banners.type == 'image'">
+                <div class="mb-3" *ngIf="banners.type == 'image' || banners.type == 'zoom'">
                     <input class="form-control" type="file" id="formFile" name="file" (change)="dataFile1($event)" id="file-{{banners.identifier}}">
                     <input class="form-control" type="hidden" name="hyperlink" [ngModel]="banners.identifier+'.png'" id="hyperlink-{{banners.identifier}}">
                 </div>
-                <div class="mb-3" *ngIf="banners.type == 'video'">
-                    <label class="form-label">Link Video / Youtube</label>
+                <div class="mb-3" *ngIf="banners.type == 'video' || banners.type == 'zoom'">
+                    <label class="form-label" *ngIf="banners.type == 'video'">Link Video / Youtube</label>
+                    <label class="form-label" *ngIf="banners.type == 'zoom'">Link Zoom</label>
                     <input class="form-control" type="text" name="url" [ngModel]="banners.url" id="url-{{banners.identifier}}">
                 </div>
             </div>

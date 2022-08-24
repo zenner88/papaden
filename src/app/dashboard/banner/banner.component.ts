@@ -125,6 +125,13 @@ export class BannerComponent implements OnInit {
       "url" : url
       }
 
+    const formData3: FormData = new FormData();
+      formData3.append('identifier', identifier);
+      formData3.append('type', type);
+      formData3.append('url', url);
+      formData3.append('file', this.file1);
+      formData3.append('hyperlink', "http://202.67.10.240:3000/images/"+hyperlink);
+
     console.log(formData)
     if (type == 'image'){
       let apiMemberUrl = 'https://api-devs.papaden.org/banner_link/'+identifier;
@@ -141,6 +148,7 @@ export class BannerComponent implements OnInit {
         }
       })  
     }
+
     if (type == 'video'){
       let apiMemberUrl = 'https://api-devs.papaden.org/banner_link/'+identifier;
       this.httpClient.put(apiMemberUrl, formData2).subscribe((data: any) => {
@@ -153,6 +161,22 @@ export class BannerComponent implements OnInit {
         // }, 2000);
         }else{
           this._snackBar.open("Data Tidak Valid!", "OK", {duration: 3000})
+        }
+      })  
+    }
+
+    if (type == 'zoom'){
+      let apiMemberUrl = 'https://api-devs.papaden.org/banner_link/'+identifier;
+      this.httpClient.put(apiMemberUrl, formData3).subscribe((data: any) => {
+      console.log(data);
+        if (data.message == "banner_link updated successfully")
+        {
+          this._snackBar.open("Zoom Berhasil di Update", "OK", {duration: 3000})
+          // setTimeout(function(){
+            this.ngOnInit();
+        // }, 2000);
+        }else{
+          this._snackBar.open("Zoom Tidak Valid!", "OK", {duration: 3000})
         }
       })  
     }
