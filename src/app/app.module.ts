@@ -22,6 +22,7 @@ import {RecipientsComponent} from "./dashboard/activity/recipients/recipients.co
 import {BooksComponent} from "./dashboard/activity/books/books.component";
 import {ConsultantComponent} from "./dashboard/consultant/consultant.component";
 import {ZoomComponent} from "./user/zoom/zoom.component";
+import {PrivacyComponent} from "./user/privacy/privacy.component";
 import {ResetpasswordComponent} from "./user/resetpassword/resetpassword.component";
 import {MainComponent} from "./user/main/main.component";
 import {LoginComponent} from "./user/login/login.component";
@@ -68,7 +69,8 @@ import { OktaAuth } from '@okta/okta-auth-js';
     MemberpopupComponent,
     YoutubeComponent,
     BannerComponent,
-    SafePipe
+    SafePipe,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
