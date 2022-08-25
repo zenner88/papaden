@@ -15,6 +15,7 @@ import {MainComponent} from "./user/main/main.component";
 import {LoginComponent} from "./user/login/login.component";
 import {BannerComponent} from "./dashboard/banner/banner.component";
 import {PrivacyComponent} from "./user/privacy/privacy.component";
+import {ResetpasswordformComponent} from "./user/resetpasswordform/resetpasswordform.component";
 
 const routes: Routes = [
   {
@@ -86,6 +87,10 @@ const routes: Routes = [
   {
     path: 'user/resetpassword',
     component: ResetpasswordComponent
+  },
+  {
+    path: 'resetpassword',
+    component: ResetpasswordformComponent
   },
 ];
 

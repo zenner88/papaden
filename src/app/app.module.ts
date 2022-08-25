@@ -24,6 +24,7 @@ import {ConsultantComponent} from "./dashboard/consultant/consultant.component";
 import {ZoomComponent} from "./user/zoom/zoom.component";
 import {PrivacyComponent} from "./user/privacy/privacy.component";
 import {ResetpasswordComponent} from "./user/resetpassword/resetpassword.component";
+import {ResetpasswordformComponent} from "./user/resetpasswordform/resetpasswordform.component";
 import {MainComponent} from "./user/main/main.component";
 import {LoginComponent} from "./user/login/login.component";
 import {MemberpopupComponent} from "./dashboard/users/member/memberpopup/memberpopup.component";
@@ -70,7 +71,8 @@ import { OktaAuth } from '@okta/okta-auth-js';
     YoutubeComponent,
     BannerComponent,
     SafePipe,
-    PrivacyComponent
+    PrivacyComponent,
+    ResetpasswordformComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
