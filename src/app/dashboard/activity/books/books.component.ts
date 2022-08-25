@@ -14,7 +14,7 @@ export class BooksComponent implements OnInit {
 
   memberUsers: Books[] = [];
   dataSource: any;
-  displayedColumns: string[] = ['select', 'fullname', 'born_date', 'consultant_fullname', 'book_date', 'book_phone', 'book_tags', 'status',  'action'];
+  displayedColumns: string[] = ['fullname', 'born_date', 'consultant_fullname', 'book_date', 'book_phone', 'book_tags', 'status',  'action'];
   selection = new SelectionModel<Books>(true, []);
   first: string = '';
   previous: string = '';

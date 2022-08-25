@@ -16,7 +16,7 @@ export class MemberComponent implements OnInit {
 
   memberUsers: Member[] = [];
   dataSource: any;
-  displayedColumns: string[] = ['select', 'fullname', 'born_city', 'born_date', 'sex_category_title', 'phone', 'email', 'isvolunteer', 'isrecipient', 'action'];
+  displayedColumns: string[] = ['fullname', 'born_city', 'born_date', 'sex_category_title', 'phone', 'email', 'isvolunteer', 'isrecipient', 'action'];
   selection = new SelectionModel<Member>(true, []);
   first: string = '';
   previous: string = '';

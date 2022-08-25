@@ -14,7 +14,7 @@ export class RecipientsComponent implements OnInit {
 
   memberUsers: Recipients[] = [];
   dataSource: any;
-  displayedColumns: string[] = ['select', 'regs_fullname', 'regs_city', 'regs_borndate', 'regs_phone', 'regs_edu', 'rec_cat_title', 'status',  'action'];
+  displayedColumns: string[] = ['regs_fullname', 'regs_city', 'regs_borndate', 'regs_phone', 'regs_edu', 'rec_cat_title', 'status',  'action'];
   selection = new SelectionModel<Recipients>(true, []);
   first: string = '';
   previous: string = '';

@@ -1,15 +1,48 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-resetpassword',
   templateUrl: './resetpassword.component.html',
-  styleUrls: ['./resetpassword.component.sass']
+  styleUrls: ['./resetpassword.component.scss']
 })
 export class ResetpasswordComponent implements OnInit {
+  emailGet: any | undefined;
+  message: string | undefined;
+  isShowForm: boolean = false ;
+  isShowS: boolean = true ;
 
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient,
+    private _snackBar: MatSnackBar,
+
+  ) 
+  { }
 
   ngOnInit(): void {
+  }
+
+  email(email: any){
+    console.log(email)
+    this.emailGet = email.target.value 
+  }
+
+  reqReset(){
+    let apiBanner = 'https://api-devs.papaden.org/auth/resetpassword/';
+    console.log(apiBanner);
+    this.httpClient.get<any>(apiBanner+this.emailGet).subscribe({
+      next: data => {
+      const code = data.statusCode;
+      console.log(data);
+      if (data.statusCode == 200){
+        this.message = "Permintaan reset password berhasil, silahkan periksa Inbox di Email : "+this.emailGet
+        console.log(this.message);
+      }else if (data.statusCode == 500){
+        this.message = "Permintaan reset password gagal, pastikan Email yang Anda input benar "+this.emailGet
+        this._snackBar.open(this.message, "OK", {duration: 2000})
+      }
+    }})
   }
 
 }

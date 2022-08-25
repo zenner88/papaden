@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   registerUsers: Register[] = [];
   dataSource: any;
-  displayedColumns: string[] = ['select', 'id', 'fullname', 'born_city', 'born_date', 'sex_category_title', 'phone', 'email', 'action'];
+  displayedColumns: string[] = ['id', 'fullname', 'born_city', 'born_date', 'sex_category_title', 'phone', 'email', 'action'];
   selection = new SelectionModel<Register>(true, []);
   first: string = '';
   previous: string = '';

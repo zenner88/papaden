@@ -24,7 +24,7 @@
 <div id="pd-consultant">
   <table mat-table [dataSource]="dataSource" width="100%">
     <!-- SELECT -->
-    <ng-container matColumnDef="select">
+    <!-- <ng-container matColumnDef="select">
       <th mat-header-cell *matHeaderCellDef>
         <mat-checkbox (change)="$event ? toggleAllRows() : null"
                       [checked]="selection.hasValue() && isAllSelected()"
@@ -39,7 +39,7 @@
                       [aria-label]="checkboxLabel(row)">
         </mat-checkbox>
       </td>
-    </ng-container>
+    </ng-container> -->
     <!-- FULLNAME -->
     <ng-container matColumnDef="consultant_id" style="display: none;">
       <th mat-header-cell *matHeaderCellDef style="display: none;"> ID. Teman Bicara </th>

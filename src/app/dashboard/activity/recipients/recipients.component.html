@@ -29,7 +29,7 @@
   <div id="pd-member">
     <table mat-table [dataSource]="dataSource">
       <!-- SELECT -->
-      <ng-container matColumnDef="select">
+      <!-- <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
           <mat-checkbox (change)="$event ? toggleAllRows() : null"
                         [checked]="selection.hasValue() && isAllSelected()"
@@ -44,7 +44,7 @@
                         [aria-label]="checkboxLabel(row)">
           </mat-checkbox>
         </td>
-      </ng-container>
+      </ng-container> -->
       <!-- FULLNAME -->
       <ng-container matColumnDef="regs_fullname">
         <th mat-header-cell *matHeaderCellDef> Nama Lengkap </th>

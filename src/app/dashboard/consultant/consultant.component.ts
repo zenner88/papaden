@@ -15,7 +15,7 @@ export class ConsultantComponent implements OnInit {
 
   userConsultant: Consultant[] = [];
   dataSource: any;
-  displayedColumns: string[] = ['select', 'consultant_id', 'consultant_fullname', 'consultant_specialis', 'consultant_city', 'consultant_exp', 'consultant_phone', 'consultant_profil_url', 'action'];
+  displayedColumns: string[] = ['consultant_id', 'consultant_fullname', 'consultant_specialis', 'consultant_city', 'consultant_exp', 'consultant_phone', 'consultant_profil_url', 'action'];
   selection = new SelectionModel<Member>(true, []);
   first: string = '';
   previous: string = '';
