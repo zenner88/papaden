@@ -5,6 +5,8 @@ import { SelectionModel } from "@angular/cdk/collections";
 import { FormBuilder } from "@angular/forms";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
+import {BookspopupComponent} from "./bookspopup/bookspopup.component";
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -99,17 +101,19 @@ export class BooksComponent implements OnInit {
     return this.getAllUsersMember();
   }
 
-  delUsersRegister(ids: any) {
+  delBooks(ids: any) {
     return this.booksService.delUsersMember(ids).subscribe(() => {
       this.getAllUsersMember();
     });
   }
 
-  // popUpMemberUpdate() {
-  //   const popUpRef = this.popUpMember.open(MemberpopupComponent);
-  //   popUpRef.afterClosed().subscribe(() => {
-  //     this.getAllUsersMember();
-  //   })
-  // }
-
+  popUpStatusUpdate(data:any){
+    console.table(data)
+    localStorage.setItem('BookStatus', JSON.stringify(data))
+    const popUpRef = this.popUpMember.open(BookspopupComponent);
+    popUpRef.afterClosed().subscribe(() => {
+      this.getAllUsersMember();
+      localStorage.removeItem('BookStatus')
+    })
+  }
 }

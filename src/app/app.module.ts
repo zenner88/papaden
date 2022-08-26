@@ -28,6 +28,8 @@ import {ResetpasswordformComponent} from "./user/resetpasswordform/resetpassword
 import {MainComponent} from "./user/main/main.component";
 import {LoginComponent} from "./user/login/login.component";
 import {MemberpopupComponent} from "./dashboard/users/member/memberpopup/memberpopup.component";
+import {RecipientspopupComponent} from "./dashboard/activity/recipients/recipientspopup/recipientspopup.component";
+import {BookspopupComponent} from "./dashboard/activity/books/bookspopup/bookspopup.component";
 import {YoutubeComponent} from "./dashboard/youtube/youtube.component";
 import {BannerComponent} from "./dashboard/banner/banner.component";
 
@@ -72,7 +74,9 @@ import { OktaAuth } from '@okta/okta-auth-js';
     BannerComponent,
     SafePipe,
     PrivacyComponent,
-    ResetpasswordformComponent
+    ResetpasswordformComponent,
+    RecipientspopupComponent,
+    BookspopupComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),

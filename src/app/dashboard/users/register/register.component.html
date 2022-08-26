@@ -82,9 +82,9 @@
         <button class="uk-button uk-button-danger uk-margin-small-right" type="button" (click)="delUsersRegister(element.id)">
           <span uk-icon="icon: trash"></span>
         </button>
-        <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" (click)="popupUsersRegister(element.id)">
+        <!-- <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" (click)="popupUsersRegister(element.id)">
           <span uk-icon="icon: pencil"></span>
-        </button>
+        </button> -->
         <button class="uk-button uk-button-primary uk-margin-small-right" type="button" [disabled]="!element.born_city || !element.born_date || !element.sex_category_title" (click)="validateUsersRegister(element.email)">
           <span uk-icon="icon: arrow-right"></span>
         </button>

@@ -43,7 +43,6 @@ export class ResetpasswordformComponent implements OnInit {
         if (pass1 == pass2){
           let body = {
             "password": pass1,
-            "newpassword": pass2,
             "email" : email,
             "resetpasswordtoken": resetpasswordtoken
           }
@@ -55,29 +54,28 @@ export class ResetpasswordformComponent implements OnInit {
             const code = data.statusCode;
             console.log(data);
             if (data.statusCode == 200){
-              let message = "Permintaan reset password berhasil, silahkan periksa Inbox di Email : "
-              console.log(message);
-            }else if (data.statusCode == 500){
-              let message = "Permintaan reset password gagal, pastikan Email yang Anda input benar "
-              this._snackBar.open(message, "OK", {duration: 2000})
-            }else if (data.statusCode == 400){
-              let message = "password must be longer than or equal to 8 characters";
-              this._snackBar.open(message, "OK", {duration: 2000})
-            }else if (data.statusCode == 401){
+              this.message = "Reset Password Berhasil!"
+              console.log(this.message);
+              this.isShowForm = true;
+              this.isShowS = false;
+            }
+            if (data.statusCode == 401 ){
+              let message = data.message;
+              this._snackBar.open(message, "OK", {duration: 5000})
             }
           },
           error: error => {
-              let errorMessage = error.message;
               console.error('There was an error!', error);
               if (error.status == 400 ){
-                let message = error.error.message[0] +" & "+ error.error.message[1];
-                this._snackBar.open(message, "OK", {duration: 2000})
+                let message = error.error.message[0]+" & "+error.error.message[1];
+                this._snackBar.open(message, "OK", {duration: 5000})
               }
+             
           }
         })
         }else{
           let message = "Password Not Match";
-          this._snackBar.open(message, "OK", {duration: 2000})
+          this._snackBar.open(message, "OK", {duration: 5000})
         }
       }
     );

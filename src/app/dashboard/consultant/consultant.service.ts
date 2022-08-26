@@ -52,6 +52,13 @@ export class ConsultantService {
     this.getAllConsultant();
   }
 
+  delConsultant(ids: any) {
+    return this.httpClient.delete(this.apiConsultantUrl + 'consultant/' + ids)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+
   errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
     let errorMessage : string;
     if (error.error instanceof ErrorEvent) {

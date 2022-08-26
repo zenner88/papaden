@@ -37,12 +37,21 @@ export class ResetpasswordComponent implements OnInit {
       console.log(data);
       if (data.statusCode == 200){
         this.message = "Permintaan reset password berhasil, silahkan periksa Inbox di Email : "+this.emailGet
+        // this._snackBar.open(this.message, "OK", {duration: 5000})
+        this.isShowForm = true;
+        this.isShowS = false;
         console.log(this.message);
-      }else if (data.statusCode == 500){
-        this.message = "Permintaan reset password gagal, pastikan Email yang Anda input benar "+this.emailGet
-        this._snackBar.open(this.message, "OK", {duration: 2000})
       }
-    }})
+    },
+    error: error => {
+      let errorMessage = error.message;
+      // console.error('There was an error!', error);
+      if (error.error.statusCode == 500 ){
+        this.message = "Permintaan reset password gagal, pastikan Email yang Anda input benar : "+this.emailGet
+        this._snackBar.open(this.message, "OK", {duration: 5000})
+      }
+  }
+  })
   }
 
 }

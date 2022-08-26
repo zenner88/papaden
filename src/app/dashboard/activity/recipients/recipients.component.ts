@@ -5,6 +5,8 @@ import { SelectionModel } from "@angular/cdk/collections";
 import { FormBuilder } from "@angular/forms";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
+import {RecipientspopupComponent} from "./recipientspopup/recipientspopup.component";
+
 @Component({
   selector: 'app-recipients',
   templateUrl: './recipients.component.html',
@@ -92,7 +94,7 @@ export class RecipientsComponent implements OnInit {
     return this.getAllUsersMember();
   }
 
-  delUsersRegister(ids: any) {
+  delResipients(ids: any) {
     return this.recipientsService.delUsersMember(ids).subscribe(() => {
       this.getAllUsersMember();
     });
@@ -103,6 +105,15 @@ export class RecipientsComponent implements OnInit {
     let kategori = event.target.textContent.trim()
     this.recipientsService.byKategori(kategori);
     return this.getAllUsersMember();
+  }
+  popUpStatusUpdate(data:any){
+    console.table(data)
+    localStorage.setItem('reciStatus', JSON.stringify(data))
+    const popUpRef = this.popUpMember.open(RecipientspopupComponent);
+    popUpRef.afterClosed().subscribe(() => {
+      this.getAllUsersMember();
+      localStorage.removeItem('reciStatus')
+    })
   }
 
   // popUpMemberUpdate() {

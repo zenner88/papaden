@@ -101,12 +101,12 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let element">
-          <button class="uk-button uk-button-danger uk-margin-small-right" type="button" (click)="delUsersRegister(element.id)">
+          <!-- <button class="uk-button uk-button-danger uk-margin-small-right" type="button" (click)="delBooks(element.id)">
             <span uk-icon="icon: trash"></span>
-          </button>
-          <!-- <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" (click)="popUpMemberUpdate()">
-            <span uk-icon="icon: pencil"></span>
           </button> -->
+          <button class="uk-button uk-button-secondary uk-margin-small-right" type="button" (click)="popUpStatusUpdate(element)">
+            <span uk-icon="icon: pencil"></span>
+          </button>
         </td>
       </ng-container>
       <!-- ROW -->

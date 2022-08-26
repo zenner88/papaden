@@ -86,7 +86,13 @@ export class ConsultantComponent implements OnInit {
   getInitials(nameString:any){
     const fullName = nameString.split(' ');
     const initials = fullName.shift().charAt(0);
-    console.log(initials)
+    // console.log(initials)
     return initials.toUpperCase();
+  }
+
+  delConsultant(ids: any) {
+    return this.consultantService.delConsultant(ids).subscribe(() => {
+      this.getAllConsultant();
+    });
   }
 }
