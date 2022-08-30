@@ -10,7 +10,7 @@
         <div class="uk-margin">
           <h3>Update Status</h3>
           <hr>
-          <input class="uk-input" type="text" formControlName="book_id" [ngModel]="book_id" required>
+          <input class="uk-input" type="hidden" formControlName="book_id" [ngModel]="book_id" required>
           <mat-form-field appearance="fill">
             <mat-label>Status</mat-label>
             <mat-select id="bantuan" formControlName="status" [ngModel]="status">
