@@ -32,6 +32,7 @@ import {RecipientspopupComponent} from "./dashboard/activity/recipients/recipien
 import {BookspopupComponent} from "./dashboard/activity/books/bookspopup/bookspopup.component";
 import {YoutubeComponent} from "./dashboard/youtube/youtube.component";
 import {BannerComponent} from "./dashboard/banner/banner.component";
+import {RatingComponent} from "./user/rating/rating.component";
 
 import {ClipboardModule} from '@angular/cdk/clipboard';
 
@@ -50,8 +51,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {SafePipe} from "./safe.pipe";
-
 import { OktaAuth } from '@okta/okta-auth-js';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +77,9 @@ import { OktaAuth } from '@okta/okta-auth-js';
     PrivacyComponent,
     ResetpasswordformComponent,
     RecipientspopupComponent,
-    BookspopupComponent
+    BookspopupComponent,
+    RatingComponent,
+    
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),

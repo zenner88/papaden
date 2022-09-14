@@ -16,6 +16,7 @@ import {LoginComponent} from "./user/login/login.component";
 import {BannerComponent} from "./dashboard/banner/banner.component";
 import {PrivacyComponent} from "./user/privacy/privacy.component";
 import {ResetpasswordformComponent} from "./user/resetpasswordform/resetpasswordform.component";
+import {RatingComponent} from "./user/rating/rating.component";
 
 const routes: Routes = [
   {
@@ -91,6 +92,10 @@ const routes: Routes = [
   {
     path: 'resetpassword',
     component: ResetpasswordformComponent
+  },
+  {
+    path: 'rating',
+    component: RatingComponent
   },
 ];
 
