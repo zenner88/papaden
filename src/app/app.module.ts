@@ -33,6 +33,7 @@ import {BookspopupComponent} from "./dashboard/activity/books/bookspopup/bookspo
 import {YoutubeComponent} from "./dashboard/youtube/youtube.component";
 import {BannerComponent} from "./dashboard/banner/banner.component";
 import {RatingComponent} from "./user/rating/rating.component";
+import {DeleteuserComponent} from "./user/deleteuser/deleteuser.component";
 
 import {ClipboardModule} from '@angular/cdk/clipboard';
 
@@ -79,7 +80,7 @@ import { OktaAuth } from '@okta/okta-auth-js';
     RecipientspopupComponent,
     BookspopupComponent,
     RatingComponent,
-    
+    DeleteuserComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),

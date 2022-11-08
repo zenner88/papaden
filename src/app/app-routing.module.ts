@@ -17,6 +17,7 @@ import {BannerComponent} from "./dashboard/banner/banner.component";
 import {PrivacyComponent} from "./user/privacy/privacy.component";
 import {ResetpasswordformComponent} from "./user/resetpasswordform/resetpasswordform.component";
 import {RatingComponent} from "./user/rating/rating.component";
+import {DeleteuserComponent} from "./user/deleteuser/deleteuser.component";
 
 const routes: Routes = [
   {
@@ -96,6 +97,10 @@ const routes: Routes = [
   {
     path: 'rating',
     component: RatingComponent
+  },
+  {
+    path: 'deleteuser',
+    component: DeleteuserComponent
   },
 ];
 
