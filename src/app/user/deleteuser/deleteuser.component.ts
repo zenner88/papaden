@@ -45,6 +45,9 @@ export class DeleteuserComponent implements OnInit {
         this.isShowForm = true;
         this.isShowS = false;
         console.log(this.message);
+      }else if (data.statusCode == 404 ){
+        this.message = "Permintaan Delete Account gagal, pastikan Email yang Anda input benar : "+this.emailGet
+        this._snackBar.open(this.message, "OK", {duration: 5000})
       }
     },
     error: error => {
@@ -54,6 +57,7 @@ export class DeleteuserComponent implements OnInit {
         this.message = "Permintaan Delete Account gagal, pastikan Email yang Anda input benar : "+this.emailGet
         this._snackBar.open(this.message, "OK", {duration: 5000})
       }
+      
   }
   })
   }
